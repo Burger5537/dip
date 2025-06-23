@@ -1,3 +1,3 @@
-elastic/filebeat:7.17.28
+nginx
 #支持指定架构
 --platform=linux/amd64
