@@ -1,3 +1,3 @@
-docker pull centos:centos8.4.2105
+rabbitmq:3.13.7-management-alpine
 #支持指定架构
 --platform=linux/amd64
