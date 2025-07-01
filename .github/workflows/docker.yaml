@@ -59,7 +59,7 @@ jobs:
         while IFS= read -r line; do
             # 忽略空行与注释
             [[ -z "$line" ]] && continue
-            if echo "$line" | grep -q '^\s*#'; then
+            if echo "$line" | grep -Eq '^[[:space:]]*(#|-)'; then
                 continue
             fi
             
