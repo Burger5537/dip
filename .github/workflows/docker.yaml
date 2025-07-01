@@ -123,7 +123,7 @@ jobs:
             # 获取镜像名例  例如nginx
             image_name=$(echo "$image_name_tag" | awk -F':' '{print $1}')
         
-            name_space_prefix="${name_space:-}_"
+            #name_space_prefix="${name_space:-}_"
           
             # 将@sha256:等字符删除
             image_name_tag="${image_name_tag%%@*}"
