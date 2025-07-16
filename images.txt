@@ -1,3 +1,3 @@
-ghcr.io/gtsteffaniak/filebrowser:0.7.14-beta-slim
+filebrowser/filebrowser:latest
 #支持指定架构
 --platform=linux/amd64
