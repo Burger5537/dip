@@ -92,7 +92,7 @@ jobs:
             echo "platform is $platform"
         
             echo "docker pull $line"
-            docker pull --platform=linux/arm64/v8 $line
+            docker pull --platform=${platform:-'linux/amd64'} $line
            
             #platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
             #echo "platform is $platform"
@@ -109,8 +109,9 @@ jobs:
             # 获取镜像名例  例如nginx
             image_name=$(echo "$image_name_tag" | awk -F':' '{print $1}')
         
-            #name_space_prefix="${name_space:-}_"
-          
+            name_space_prefix="${name_space:-}_"
+            platform_prefix="${platform:-}_"
+            
             # 将@sha256:等字符删除
             image_name_tag="${image_name_tag%%@*}"
             new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$name_space_prefix$image_name_tag"
