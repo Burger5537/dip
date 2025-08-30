@@ -87,12 +87,15 @@ jobs:
             if echo "$line" | grep -Eq '^[[:space:]]*(#|-)'; then
                 continue
             fi
-            
-            platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
-            echo "platform is $platform"
+
+            if [[ "$line" =~ --platform[= ]([^ ]+) ]]; then
+                platform="${BASH_REMATCH[1]}"
+            else
+                platform="linux/amd64"  # 默认值
+            fi 
         
             echo "docker pull $line"
-            docker pull --platform=${platform:-'linux/amd64'} $line
+            docker pull --platform=${platform} $line
            
             #platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
             #echo "platform is $platform"
