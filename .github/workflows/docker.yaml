@@ -86,13 +86,14 @@ jobs:
             [[ -z "$line" ]] && continue
             if echo "$line" | grep -Eq '^[[:space:]]*(#|-)'; then
                 continue
+                  if [[ "$line" =~ --platform[= ]([^ ]+) ]]; then
+                      platform="${BASH_REMATCH[1]}"
+                  else
+                      platform="linux/amd64"  # 默认值
+                  fi
             fi
 
-            if [[ "$line" =~ --platform[= ]([^ ]+) ]]; then
-                platform="${BASH_REMATCH[1]}"
-            else
-                platform="linux/amd64"  # 默认值
-            fi 
+           
         
             echo "docker pull $line"
             docker pull --platform=${platform} $line
