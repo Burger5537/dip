@@ -92,7 +92,7 @@ jobs:
             echo "platform is $platform"
         
             echo "docker pull $line"
-            docker pull $line@platform
+            docker pull --platform=$platform $line
            
             #platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
             #echo "platform is $platform"
