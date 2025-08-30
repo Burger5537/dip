@@ -1,3 +1,3 @@
-postgres:13.22-alpine3.22
+ubuntu:noble@linux/arm64/v8
 #支持指定架构
 #--platform=linux/arm64/v8
