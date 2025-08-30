@@ -109,7 +109,7 @@ jobs:
             image_name=$(echo "$image_name_tag" | awk -F':' '{print $1}')
         
             name_space_prefix="${name_space:-}_"
-            platform_prefix="${platform:-}_"
+            #platform_prefix="${platform:-}_"
             
             # 将@sha256:等字符删除
             image_name_tag="${image_name_tag%%@*}"
