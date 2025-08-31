@@ -94,7 +94,7 @@ jobs:
            #platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
         
             echo "docker pull $line"
-            docker pull --platform=${platform:-'linux/amd64'} $line
+            docker pull --platform=${platform:-'linux/arm64/v8'} $line
            
             #platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
             #echo "platform is $platform"
