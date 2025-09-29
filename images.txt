@@ -1,2 +1,3 @@
---platform=linux/arm64/v8 centos:centos8.4.2105
+#--platform=linux/arm64/v8 centos:centos8.4.2105
+dyrnq/nfs-subdir-external-provisioner:v4.0.2
 
