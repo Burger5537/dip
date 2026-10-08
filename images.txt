@@ -1,3 +1,4 @@
---platform=linux/arm64 onlyoffice/documentserver:9.3.1.1
-#docker pull nextcloud:latest
+postgis/postgis:18-3.6
+#--platform=linux/arm64 onlyoffice/documentserver:9.3.1.1
+#nextcloud:latest
 
