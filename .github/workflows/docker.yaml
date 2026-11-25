@@ -39,6 +39,17 @@ jobs:
         # remove-codeql: 'true'
         build-mount-path: '/var/lib/docker/'
 
+    - name: Configure containerd data root
+      run: |
+        sudo mkdir -p /var/lib/docker/containerd
+        if [ -f /etc/containerd/config.toml ]; then
+          sudo sed -i 's|^root = .*|root = "/var/lib/docker/containerd"|' /etc/containerd/config.toml
+        else
+          sudo containerd config default | sudo tee /etc/containerd/config.toml > /dev/null
+          sudo sed -i 's|^root = .*|root = "/var/lib/docker/containerd"|' /etc/containerd/config.toml
+        fi
+        sudo systemctl restart containerd
+
     - name: Restart docker
       run: sudo service docker restart
 
